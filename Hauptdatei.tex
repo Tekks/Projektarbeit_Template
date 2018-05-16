@@ -163,20 +163,21 @@
 % Inhaltsverzeichnis anzeigen
 \pagenumbering {roman}
 \newpage
-\fancyhead[L]{Inhaltsverzeichnis}
+\fancyhead[L]{Inhaltsverzeichnis}\thispagestyle{FooBar}
 \tableofcontents
 
 % das Abbildungsverzeichnis
 \newpage
 % Abbildungsverzeichnis soll im Inhaltsverzeichnis auftauchen
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}\thispagestyle{FooBar}
 \listoffigures
-\addcontentsline{toc}{section}{Abbildungsverzeichnis}
-\addcontentsline{toc}{section}{Tabellenverzeichnis}
-\addcontentsline{toc}{section}{Listingverzeichnis}
-\fancyhead[L]{Abbildungs-, Tabellen - und Listingverzeichnis}
+\newpage
+\addcontentsline{toc}{section}{Tabellenverzeichnis}\thispagestyle{FooBar}
+\listoftables
+\newpage
+\addcontentsline{toc}{section}{Listingverzeichnis}\thispagestyle{FooBar}
 \renewcommand{\lstlistlistingname}{Listingverzeichnis}
 % Verzeichnisse sollen im Inhaltsverzeichnis auftauchen
-\listoftables
 \lstlistoflistings
 
 \newcommand{\au}{\glqq}
@@ -186,7 +187,7 @@
 \fancyhead[L]{Abkürzungsverzeichnis} %Kopfzeile links
 \input{subfiles/cuts/cuts}
 \printnomenclature
-\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}\thispagestyle{FooBar}
 
 \setlength{\columnsep}{25pt}
 
@@ -214,19 +215,21 @@
 
 % Literaturverzeichnis anzeigen
 \renewcommand\refname{Literaturverzeichnis}
+\section*{Literaturverzeichnis}\thispagestyle{FooBar}
 \bibliographyboo{subfiles/Hauptdatei}
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 \fancyhead[L]{Literaturverzeichnis}
 \bibliographyper{subfiles/Hauptdatei}
 \bibliographyint{subfiles/Hauptdatei}
 \onehalfspacing
-
 \newpage
-\pagenumbering{Alph}
+\pagenumbering{arabic}
+\setcounter{page}{1}
 \fancyhead[L]{}
 \input{pageContent/attachment}
 \addcontentsline{toc}{section}{Anhang}
 \newpage
+\pagenumbering{gobble}
 \fancyhead[L]{}
 \input{pageContent/erklaerung}
 \addcontentsline{toc}{section}{Eidesstattliche Erklärung}
