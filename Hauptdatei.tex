@@ -57,6 +57,9 @@
 \usepackage{fancyhdr} %Paket laden
 \pagestyle{fancy} %eigener Seitenstil
 \fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+\fancypagestyle{FooBar}{%
+    \fancyhead{}
+}
 \fancyhead[L]{\nouppercase{\leftmark}} %Kopfzeile links
 \fancyhead[C]{} %zentrierte Kopfzeile
 %\fancyhead[R]{\thepage} %Kopfzeile rechts
@@ -190,10 +193,10 @@
 %%%%%%% EINLEITUNG %%%%%%%%%%%%
 
 \newpage
-\fancyhead[L]{\nouppercase{\leftmark}}
 \onehalfspacing
-
 \pagenumbering {arabic}
+\fancyhead[L]{\nouppercase{\leftmark}}
+
 \input{pageContent/1_einleitung}
 
 \input{pageContent/2_theoretische_grundlagen}
@@ -215,17 +218,16 @@
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 \fancyhead[L]{Literaturverzeichnis}
 \bibliographyper{subfiles/Hauptdatei}
-\newpage
 \bibliographyint{subfiles/Hauptdatei}
 \onehalfspacing
 
 \newpage
 \pagenumbering{Alph}
-\fancyhead[L]{Anhang}
+\fancyhead[L]{}
 \input{pageContent/attachment}
 \addcontentsline{toc}{section}{Anhang}
 \newpage
-\fancyhead[]{}
+\fancyhead[L]{}
 \input{pageContent/erklaerung}
 \addcontentsline{toc}{section}{Eidesstattliche Erklärung}
 \newpage
