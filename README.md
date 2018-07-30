@@ -26,7 +26,7 @@ Für die Bearbeitung empfiehlt sich  [Sharelatex](https://de.sharelatex.com). Es
 │   ├── 1_einleitung.tex
 │   ├── 2_theoretische_grundlagen.tex
 │   ├── 3_rahmenbedingungen.tex
-│   ├── 4_grundlaagenAI.tex
+│   ├── 4_hauptcontent.tex
 │   ├── 5_schlussbemerkung.tex
 │   ├── abstract.tex
 │   ├── attachment.tex
@@ -35,7 +35,7 @@ Für die Bearbeitung empfiehlt sich  [Sharelatex](https://de.sharelatex.com). Es
 │   └── sperrvermerk.tex    
 ├── subfiles
 │   ├── deckblatt.tex
-│   ├── Hauptdatei.bib
+│   ├── bibfile.bib
 │   ├── trennung.tex
 │   ├── variablen.tex
 │   ├── cuts
