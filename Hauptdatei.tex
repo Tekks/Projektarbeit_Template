@@ -1,3 +1,4 @@
+% made with ♥ by Tekks
 % allgem. Dokumentenformat
 \documentclass[a4paper,12pt,headsepline]{scrartcl}
 \input{subfiles/variablen}
@@ -13,8 +14,6 @@
 \usepackage[right]{eurosym}
 % Grafikhauptverzeichnis
 \graphicspath{{depictions/images/}}
-% Umlaute unter UTF8 nutzen
-\usepackage[utf8]{inputenc}
 
 % Zeichenencoding
 \usepackage[T1]{fontenc}
@@ -37,15 +36,11 @@
 \usepackage{fancybox}
 % bricht lange URLs "schoen" um
 \usepackage[hyphens,obeyspaces,spaces]{url}
-
 % Paket für Textfarben
 \usepackage{color}
 
 % Mathematische Symbole importieren
 \usepackage{amssymb}
-
-% auf jeder Seite eine Überschrift (alt, zentriert)
-%\pagestyle{headings}
 
 % erzeugt Inhaltsverzeichnis mit Querverweisen zu den Kapiteln (PDF Version)
 \usepackage[bookmarksnumbered,pdftitle={\arbeitstitel},hyperfootnotes=false,pdfauthor={\projauthorvor \projauthornach}]{hyperref}
@@ -70,24 +65,33 @@
 \pagenumbering{gobble}
 % für Tabellen
 \usepackage{array}
-
+\usepackage{csquotes}
 % Runde Klammern für Zitate
-%\usepackage[round,sort,comma,super,authoryear]{natbib}
-\usepackage{natbib}
-\usepackage{multibib}
-\usepackage[ngerman]{babel}
-\newcites{boo}{Bücher}
-\newcites{int}{Internetquellen}
-\newcites{per}{Firmeninterne Quellen}
-%\usepackage[backend=biber,style=alphabetic,citestyle=authoryear]{biblatex}
 
-% Festlegung Art der Zitierung - Havardmethode: Abkuerzung Autor + Jahr
-%\bibliographystyle{alphadin}
-\bibliographystyleboo{natdin}
-\bibliographystyleint{natdin}
-\bibliographystyleper{natdin}
-\bibpunct{(}{)}{,}{a}{}{;}
+\usepackage[backend=biber,%
+            style=alphabetic,
+            citestyle=alphabetic,
+            maxalphanames=1,
+            sorting=ynt,
+            ]{biblatex}
+\addbibresource{subfiles/bibfile.bib}
+\renewcommand*{\labelalphaothers}{}
+\DeclareLabelalphaTemplate{
+  \labelelement{
+    \field[final]{shorthand}
+    \field{labelname}
+    \field{label}
+  }
+  \labelelement{
+    \literal{,\addhighpenspace}
+  }
+  \labelelement{
+    \field{year}
+  }
+}
 
+\renewcommand{\textcite}[2][]{\parentext{vgl. \cite[#1]{#2}}}
+\renewcommand{\footcite}[2][]{\footnote{\parentext{vgl. \cite[#1]{#2}}}}
 % Schaltet den zusätzlichen Zwischenraum ab, den LaTeX normalerweise nach einem Satzzeichen einfügt.
 \frenchspacing
 
@@ -199,28 +203,24 @@
 \fancyhead[L]{\nouppercase{\leftmark}}
 
 \input{pageContent/1_einleitung}
-
 \input{pageContent/2_theoretische_grundlagen}
-
 \input{pageContent/3_rahmenbedingungen}
-
-\input{pageContent/4_grundlaagenAI}
-
+\input{pageContent/4_hauptcontent}
 \input{pageContent/5_schlussbemerkung}
+
 \pagenumbering {roman}
 \setcounter{page}{1}
 \onecolumn
 \singlespacing
 \newpage
-
 % Literaturverzeichnis anzeigen
 \renewcommand\refname{Literaturverzeichnis}
 \section*{Literaturverzeichnis}\thispagestyle{FooBar}
-\bibliographyboo{subfiles/Hauptdatei}
+
+
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 \fancyhead[L]{Literaturverzeichnis}
-\bibliographyper{subfiles/Hauptdatei}
-\bibliographyint{subfiles/Hauptdatei}
+\printbibliography
 \onehalfspacing
 \newpage
 \pagenumbering{arabic}
@@ -240,5 +240,4 @@
 \newpage
 \thispagestyle{empty}
 \section*{ }
-
 \end{document}
