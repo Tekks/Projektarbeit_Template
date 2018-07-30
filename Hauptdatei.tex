@@ -214,13 +214,15 @@
 \singlespacing
 \newpage
 % Literaturverzeichnis anzeigen
-\renewcommand\refname{Literaturverzeichnis}
 \section*{Literaturverzeichnis}\thispagestyle{FooBar}
-
-
-\addcontentsline{toc}{section}{Literaturverzeichnis}
 \fancyhead[L]{Literaturverzeichnis}
-\printbibliography
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\printbibliography{\thispagestyle{FooBar}}
+\printbibliography[type=thesis,title={Thesis}]
+\printbibliography[type=online,title={Netzinhalte}]
+\printbibliography[type=patent,title={Patente}]
+\printbibliography[type=collection,title={Kollektion}]
+
 \onehalfspacing
 \newpage
 \pagenumbering{arabic}
