@@ -1,6 +1,6 @@
 % made with ♥ by Tekks
 % allgem. Dokumentenformat
-\documentclass[a4paper,12pt,headsepline]{scrartcl}
+\documentclass[a4paper,12pt,headsepline]{article}
 \input{subfiles/variablen}
 
 % weitere Pakete
@@ -16,11 +16,14 @@
 \graphicspath{{depictions/images/}}
 
 % Zeichenencoding
-\usepackage[T1]{fontenc}
-\usepackage{mathptmx}
 \usepackage{fix-cm}
 \usepackage{fontspec}
-\setmainfont[Path = subfiles/font/,BoldFont=timesbd.ttf,ItalicFont=timesi.ttf,BoldItalicFont=timesbi.ttf,]{times.ttf}
+\setmainfont[
+Path=subfiles/font/,
+BoldFont=timesbd.ttf,
+ItalicFont=timesi.ttf,
+BoldItalicFont=timesbi.ttf
+]{times.ttf}
 
 % floatende Bilder ermöglichen
 \usepackage{float}
